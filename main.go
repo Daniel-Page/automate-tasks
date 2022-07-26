@@ -1,56 +1,30 @@
 package main
 
 import (
-	"unsafe"
-	"workspace/winapi"
-	"golang.org/x/sys/windows"
+	_ "embed"
+
+	"github.com/getlantern/systray"
 )
 
+//go:generate rsrc -ico icon.ico
+
+//go:embed icon.ico
+var icon []byte
+
 func main() {
-	//fmt.Print(winapi.Hello())
-	hwnd, err := winapi.CreateMainWindow()
-	if err != nil {
-		panic(err)
-	}
+	systray.Run(onReady, onExit)
+}
 
-	var data winapi.NOTIFYICONDATA
+func onReady() {
+	systray.SetIcon(icon)
+	systray.SetTitle("Awesome App")
+	systray.SetTooltip("Pretty awesome")
+	mQuit := systray.AddMenuItem("Quit", "Quit the whole app")
 
-	data.CbSize = uint32(unsafe.Sizeof(data))
-	data.UFlags = winapi.NIF_ICON | winapi.NIF_MESSAGE | winapi.NIF_TIP | winapi.NIF_INFO
-	data.HWnd = hwnd
-	data.UCallbackMessage = winapi.NotifyIconMsg
-	copy(data.SzTip[:], windows.StringToUTF16("Tray Icon"))
-	copy(data.SzInfo[:], windows.StringToUTF16("Hello from Tay Icon!"))
+	// Sets the icon of a menu item. Only available on Mac and Windows.
+	mQuit.SetIcon(icon)
+}
 
-	icon, err := winapi.LoadImage(
-		0,
-		windows.StringToUTF16Ptr("icon.ico"),
-		winapi.IMAGE_ICON,
-		0,
-		0,
-		winapi.LR_DEFAULTSIZE|winapi.LR_LOADFROMFILE)
-	if err != nil {
-		panic(err)
-	}
-	data.HIcon = icon
-
-	if _, err := winapi.Shell_NotifyIcon(winapi.NIM_ADD, &data); err != nil {
-		panic(err)
-	}
-
-	//ShowWindow(hwnd, SW_SHOW)
-
-	var msg winapi.MSG
-	for {
-		r, err := winapi.GetMessage(&msg, 0, 0, 0)
-		if err != nil {
-			panic(err)
-		}
-		if r == 0 {
-			break
-		}
-
-		winapi.TranslateMessage(&msg)
-		winapi.DispatchMessage(&msg)
-	}
+func onExit() {
+	// clean up here
 }
