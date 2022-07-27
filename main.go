@@ -6,7 +6,7 @@ import (
 	"github.com/getlantern/systray"
 )
 
-//go:generate rsrc -ico icon.ico
+//go:generate ./rsrc.exe -ico icon.ico
 
 func main() {
 	systray.Run(OnReady, OnExit) // Initialises system tray icon and starts a goroutine
