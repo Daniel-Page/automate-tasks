@@ -1,5 +1,5 @@
-# Automate Tasks
-A lightweight and standalone Windows application that periodically automates mundane tasks.
+# Automate Tasks <img style="margin-bottom:-8px;" src="icon.ico" width="40" height="40" />
+A lightweight and standalone Windows application that periodically automates mundane tasks.  
 
 ## Development
 - [Go](https://go.dev/) 1.18.4 windows/amd64
