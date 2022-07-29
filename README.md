@@ -1,4 +1,6 @@
-# Automate Tasks <img style="margin-bottom:-8px;" src="icon.ico" width="40" height="40" />
+<img align="left" width="80" height="80" src="icon.ico" alt="Automate Tasks Icon">
+
+# Automate Tasks
 A lightweight and standalone Windows application that periodically automates mundane tasks.  
 
 ## Development
