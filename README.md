@@ -7,11 +7,11 @@ A lightweight and standalone Windows application that periodically automates mun
 - Application is built by running ```.\build.bat```
 
 ### Packages
-- [GitHub - systray](https://github.com/getlantern/systray)
-- [GitHub - rsrc](https://github.com/akavel/rsrc)
+- [systray / GitHub](https://github.com/getlantern/systray)
+- [rsrc / GitHub](https://github.com/akavel/rsrc)
 
 ### Assets
-- [Icon-Icons - Craft Creative Paper Origami Panda](https://icon-icons.com/icon/craft-creative-paper-origami-panda/226505)
+- [Craft Creative Paper Origami Panda / Icon-Icons](https://icon-icons.com/icon/craft-creative-paper-origami-panda/226505)
 
 ### Tools
 - [PNG to ICO Icon Format](https://png2icojs.com/)
