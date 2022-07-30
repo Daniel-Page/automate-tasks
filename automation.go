@@ -5,8 +5,20 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/user"
 	"time"
 )
+
+func homeDirectory() {
+	currentUser, err := user.Current()
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	username := currentUser.HomeDir
+
+	fmt.Printf("Home directory is: %s", username)
+}
 
 func deleteFiles() {
 	fmt.Printf("%s\n", getTime())
