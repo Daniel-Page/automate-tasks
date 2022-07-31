@@ -1,14 +1,13 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/getlantern/systray"
-)
-
-//go:generate ./rsrc.exe -ico icon.ico
+import "github.com/getlantern/systray"
 
 func main() {
+	downloadsDir := getDownloadsDirectory()
+	process := Recycler(downloadsDir)
+
+	process.run()
+	process.print()
+
 	systray.Run(OnReady, OnExit) // Initialises system tray icon and starts a goroutine
-	fmt.Print("Automation processes")
 }
