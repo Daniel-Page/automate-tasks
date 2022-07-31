@@ -17,8 +17,3 @@ A lightweight and standalone Windows application that periodically automates mun
 
 ### Tools
 - [PNG to ICO Icon Format](https://png2icojs.com/)
-
-<!-- go mod tidy
-go mod vendor
-go build
-go run-->
