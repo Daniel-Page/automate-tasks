@@ -1,8 +1,22 @@
 package main
 
-import "github.com/getlantern/systray"
+import (
+	"log"
+	"os/exec"
+
+	"github.com/getlantern/systray"
+)
 
 func main() {
+
+	cmd := exec.Command("cmd", "/C", "start", "C:\\Windows\\System32\\cmd.exe")
+
+	err := cmd.Run()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	downloadsDir := getDownloadsDirectory()
 	process := Recycler(downloadsDir)
 

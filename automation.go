@@ -22,7 +22,6 @@ func Recycler(dir string) *recycler {
 
 func (r *recycler) run() {
 	findFiles(r.dir)
-
 }
 
 func (r *recycler) print() {
